@@ -6,12 +6,14 @@ function GoogleCalendar() {
   /* 
     Update with your own Client Id and Api key 
   */
-  var CLIENT_ID =
-    '459427691735-8sipln7tu0uk45lamqkerha37cp099kv.apps.googleusercontent.com';
-  var API_KEY = 'AIzaSyB8aIjDjRsa6Q3a_HxQ-Sld0VF1l20KkUk';
+    var CLIENT_ID =
+    "922443255209-lbf01dsi04ara09joauio5hvav4hn053.apps.googleusercontent.com";
+  var API_KEY = "AIzaSyAtraYTAe0seK27XigiQaeLDDc7gRragUg";
+
   var DISCOVERY_DOCS = [
     'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
   ];
+ 
   var SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
   const handleClick = () => {
@@ -25,7 +27,7 @@ function GoogleCalendar() {
         scope: SCOPES,
       });
 
-      gapi.client.load('calendar', 'v3', () => console.log('Yo!'));
+      gapi.client.load('calendar', 'v3', () => console.log('script loaded!'));
 
       gapi.auth2
         .getAuthInstance()
@@ -81,7 +83,9 @@ function GoogleCalendar() {
               const events = response.result.items;
               console.log('EVENTS: ', events);
             });
-        });
+        }).catch(err => {
+          console.log("error aata:",err);
+        })
     });
   };
 
